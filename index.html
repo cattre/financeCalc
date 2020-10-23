@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Finance calculator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel='stylesheet' type= 'text/css' href='app/css/style.css'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta charset='UTF-8'>
+    <script defer src='app/js/dist/app.js'></script>
+</head>
+<body>
+    <section>
+        <div class='container'>
+            <h4 class='title'>Finance calculator</h4>
+            <span class='intro'>You can use this calculator to get a rough idea of the length of time it will take to repay your loan.
+                Please note, the details you provide are not actually submitted and therefore are not accessible by us or anyone else.</span>
+            <form>
+                <div id='loanGroup' class='fieldGroup'>
+                    <label for='loan' class='fieldTitle'>Amount to borrow £</label>
+                    <div>
+                        <input type='number' id='loan' class='input loan' placeholder='max. 10000'>
+                    </div>
+                    <div class='errorContainer'></div>
+                </div>
+                <div id='repaymentTypeGroup' class='fieldGroup'>
+                    <label for='repaymentType' class='fieldTitle'>Repayment type</label>
+                    <div class='input' id='repaymentType'>
+                        <label for='%'>Percentage of salary</label>
+                        <input type='radio' id='%' name='repaymentType' value='%' class='repaymentType'>
+                        <label for='£'>Fixed amount</label>
+                        <input type='radio' id='£' name='repaymentType' value='£' class='repaymentType'>
+                    </div>
+                    <div class='errorContainer'></div>
+                </div>
+                <div id='repaymentAmountGroup' class='fieldGroup' hidden>
+                    <label for='repaymentAmount' class='fieldTitle' id='repaymentAmountText'>Monthly repayment amount</label>
+                    <input type='number' id='repaymentAmount' class='input repaymentAmount'>
+                    <div class='errorContainer'></div>
+                </div>
+                <div id='expectedSalaryGroup' class='fieldGroup' hidden>
+                    <label for='expectedSalary' class='fieldTitle'>Expected annual salary £</label>
+                    <div>
+                        <input type='number' id='expectedSalary' class='input expectedSalary' placeholder='e.g. 25000'>
+                    </div>
+                    <div class='errorContainer'></div>
+                </div>
+                <input type='button' value='Calculate' class='button submit'>
+            </form>
+            <table class='table results' hidden>
+                <tr>
+                    <td>Total amount borrowed</td>
+                    <td class='totalAmount'></td>
+                </tr>
+                <tr>
+                    <td>This includes an upfront admin fee of</td>
+                    <td class='adminFee'></td>
+                </tr>
+                <tr>
+                    <td>Estimated time to repay</td>
+                    <td class='timeToRepay'></td>
+                </tr>
+            </table>
+        </div>
+    </section>
+</body>
+</html>
