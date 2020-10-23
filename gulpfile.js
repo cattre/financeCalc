@@ -4,7 +4,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var ts = require('gulp-typescript');
 var tsProject = ts.createProject('tsconfig.json');
 
-<<<<<<< HEAD
+
 function babelCompile(cb) {
     return gulp.src("app/js/*.js")
         .pipe(sourcemaps.init())
@@ -13,12 +13,13 @@ function babelCompile(cb) {
         }))
         .pipe(sourcemaps.write("."))
         .pipe(gulp.dest("app/js/dist"));
-=======
+}
+
 function tsCompile(cb) {
     return tsProject.src()
         .pipe(tsProject())
         .js.pipe(gulp.dest("app/js/dist"));
->>>>>>> ts-compiler
+
     cb();
 }
 

@@ -228,7 +228,8 @@ var calculateTimeToRepay = function (totalLoan, upfrontFee) {
     }
     return Math.round((totalLoan - upfrontFee) / repaymentAmount);
 };
-var displayResults = function (totalAmount, adminFee, timeToRepay) {
+var displayResults = function (additionalFee, totalAmount, adminFee, timeToRepay) {
+    var additionalFeeSpan = document.querySelector('.additionalFee');
     var totalAmountSpan = document.querySelector('.totalAmount');
     var adminFeeSpan = document.querySelector('.adminFee');
     var timeToRepaySpan = document.querySelector('.timeToRepay');
@@ -268,6 +269,7 @@ var displayResults = function (totalAmount, adminFee, timeToRepay) {
     else {
         concat = ' and ';
     }
+    additionalFeeSpan.textContent = "\u00A3" + additionalFee;
     totalAmountSpan.textContent = "\u00A3" + totalAmount;
     adminFeeSpan.textContent = "\u00A3" + adminFee;
     timeToRepaySpan.textContent = "" + yearsString + concat + monthsString;
@@ -280,6 +282,6 @@ var submitForm = function () {
         var totalLoan = Math.round(additionalFee + loan);
         var upfrontFee = calculateUpfrontFee(totalLoan, adminFeePercent);
         var timeToRepay = calculateTimeToRepay(totalLoan, upfrontFee);
-        displayResults(totalLoan, upfrontFee, timeToRepay);
+        displayResults(additionalFee, totalLoan, upfrontFee, timeToRepay);
     }
 };

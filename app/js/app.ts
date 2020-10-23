@@ -341,6 +341,8 @@ let calculateTimeToRepay = (totalLoan: number, upfrontFee: number): number => {
 /**
  * Display results on page
  *
+ * @param additionalFee
+ *                  Additional fee to add to loan
  * @param totalAmount
  *                  Total amount of loan
  * @param adminFee
@@ -348,7 +350,8 @@ let calculateTimeToRepay = (totalLoan: number, upfrontFee: number): number => {
  * @param timeToRepay
  *                  Time to repay total loan
  */
-let displayResults = (totalAmount: number, adminFee: number, timeToRepay: number): void => {
+let displayResults = (additionalFee: number, totalAmount: number, adminFee: number, timeToRepay: number): void => {
+    let additionalFeeSpan: HTMLElement = document.querySelector('.additionalFee')
     let totalAmountSpan: HTMLElement = document.querySelector('.totalAmount')
     let adminFeeSpan: HTMLElement = document.querySelector('.adminFee')
     let timeToRepaySpan: HTMLElement = document.querySelector('.timeToRepay')
@@ -396,6 +399,7 @@ let displayResults = (totalAmount: number, adminFee: number, timeToRepay: number
         concat = ' and '
     }
 
+    additionalFeeSpan.textContent = `£${additionalFee}`
     totalAmountSpan.textContent = `£${totalAmount}`
     adminFeeSpan.textContent = `£${adminFee}`
     timeToRepaySpan.textContent = `${yearsString}${concat}${monthsString}`
@@ -416,6 +420,6 @@ let submitForm = (): void => {
         let upfrontFee = calculateUpfrontFee(totalLoan, adminFeePercent)
         let timeToRepay = calculateTimeToRepay(totalLoan, upfrontFee)
 
-        displayResults(totalLoan, upfrontFee, timeToRepay)
+        displayResults(additionalFee, totalLoan, upfrontFee, timeToRepay)
     }
 }
