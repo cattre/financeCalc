@@ -8,6 +8,13 @@ const lowerThresholdFee: number = 500 // £
 const higherThreshold: number = 90 // %
 const higherThresholdFee: number = 500 // £
 
+// Display intro text
+document.querySelector('.intro').innerHTML =
+`<p>You can use this calculator to get a rough idea of the length of time it will take to repay your loan.</p>
+<p>You can borrow anything up to the full amount of the course (£${maxLoan}). An addiitonal fee of £${lowerThresholdFee} is payable for loans above ${lowerThreshold}%, a further fee of £${higherThresholdFee} is payable for loans above ${higherThreshold}%.</p>
+<p>Please note, the details you provide in this form are not actually submitted and therefore are not accessible by us or anyone else.</p>`
+
+
 let fieldGroups = document.querySelectorAll('.fieldGroup')
 let submit = <HTMLInputElement>document.querySelector('.submit')
 

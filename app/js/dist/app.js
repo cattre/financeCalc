@@ -6,6 +6,8 @@ var lowerThreshold = 80;
 var lowerThresholdFee = 500;
 var higherThreshold = 90;
 var higherThresholdFee = 500;
+document.querySelector('.intro').innerHTML =
+    "<p>You can use this calculator to get a rough idea of the length of time it will take to repay your loan.</p>\n<p>You can borrow anything up to the full amount of the course (\u00A3" + maxLoan + "). An addiitonal fee of \u00A3" + lowerThresholdFee + " is payable for loans above " + lowerThreshold + "%, a further fee of \u00A3" + higherThresholdFee + " is payable for loans above " + higherThreshold + "%.</p>\n<p>Please note, the details you provide in this form are not actually submitted and therefore are not accessible by us or anyone else.</p>";
 var fieldGroups = document.querySelectorAll('.fieldGroup');
 var submit = document.querySelector('.submit');
 window.addEventListener('load', function () {
